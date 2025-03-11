@@ -23,18 +23,13 @@ class Spaces extends Client {
     // ...
   }
 
-  Bucket bucket(String? bucket) {
-    if (endpointUrl == "https://${region}.digitaloceanspaces.com") {
+  Bucket bucket(String? bucket, String path) {
       return new Bucket(
           region: region,
           accessKey: accessKey,
           secretKey: secretKey,
-          endpointUrl: "https://${bucket}.${region}.digitaloceanspaces.com",
+          endpointUrl: "https://${bucket}.${region}.digitaloceanspaces.com/$path",
           httpClient: httpClient);
-    } else {
-      throw Exception(
-          "Endpoint URL not supported. Create Bucket client manually.");
-    }
   }
 
   Future<List<String>> listAllBuckets() async {

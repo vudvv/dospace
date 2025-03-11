@@ -18,13 +18,13 @@ main() async {
   );
   for (String name in await spaces.listAllBuckets()) {
     print('bucket: ${name}');
-    dospace.Bucket bucket = spaces.bucket(name);
+    dospace.Bucket bucket = spaces.bucket(name, '');
     await for (dospace.BucketContent content
         in bucket.listContents(maxKeys: 3)) {
       print('key: ${content.key}');
     }
   }
-  dospace.Bucket bucket = spaces.bucket(bucketName);
+  dospace.Bucket bucket = spaces.bucket(bucketName, '');
   String? etag = await bucket.uploadFile(
       'README.md', 'README.md', 'text/plain', dospace.Permissions.public);
   print('upload: $etag');

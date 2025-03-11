@@ -19,7 +19,7 @@ Future<void> main() async {
       accessKey: cfg.get("Spaces", "key"),
       secretKey: cfg.get("Spaces", "secret"),
     );
-    bucket = spaces!.bucket(cfg.get("Bucket", "bucket"));
+    bucket = spaces!.bucket(cfg.get("Bucket", "bucket"), '');
   });
 
   tearDown(() async {
