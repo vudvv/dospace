@@ -23,12 +23,12 @@ class Spaces extends Client {
     // ...
   }
 
-  Bucket bucket(String? bucket, String path) {
+  Bucket bucket(String? bucket) {
       return new Bucket(
           region: region,
           accessKey: accessKey,
           secretKey: secretKey,
-          endpointUrl: "https://${bucket}.${region}.digitaloceanspaces.com/$path",
+          endpointUrl: "https://${bucket}.${region}.digitaloceanspaces.com",
           httpClient: httpClient);
   }
 

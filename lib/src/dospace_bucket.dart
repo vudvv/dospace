@@ -31,14 +31,6 @@ class Bucket extends Client {
     // ...
   }
 
-  void bucket(String bucket) {
-    if (endpointUrl == "https://${region}.digitaloceanspaces.com") {
-    } else {
-      throw Exception(
-          "Endpoint URL not supported. Create Bucket client manually.");
-    }
-  }
-
   /// List the Bucket's Contents.
   /// https://developers.digitalocean.com/documentation/spaces/#list-bucket-contents
   Stream<BucketContent> listContents(
